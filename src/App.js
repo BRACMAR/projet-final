@@ -39,12 +39,12 @@ const App = () => {
     getMovieRequest(searchValue);
   }, [searchValue]);
 
-// useEffect(() => {
-//   const movieFavourites = JSON.parse(
-//     localStorage.getItem('react-flight-app-favourites')
-//     );
-//     setFavourites(movieFavourites);
-// }, []);
+useEffect(() => {
+  const movieFavourites = JSON.parse(
+    localStorage.getItem('react-flight-app-favourites')
+    );
+    setFavourites(movieFavourites);
+}, []);
 
 
   
