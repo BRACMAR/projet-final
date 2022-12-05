@@ -8,6 +8,7 @@ import './App.css';
 import AddFavourite from './Components/addFavourites';
 import RemoveFavourite from './Components/removeFavourites';
 
+
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [favourites, setFavourites]= useState([]);
@@ -96,6 +97,7 @@ useEffect(() => {
         favouriteComponent={RemoveFavourite}
       />
     </div>
+
       
     </div>
 
@@ -103,4 +105,3 @@ useEffect(() => {
 
 export default App;
 
-// <InfoList infos={infos}/>
