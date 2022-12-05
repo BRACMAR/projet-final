@@ -64,6 +64,7 @@ useEffect(() => {
       (favourite)=>favourite.imdbID !== movie.imdbID
     );
     setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
   };
 
 
