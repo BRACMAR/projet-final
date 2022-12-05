@@ -37,6 +37,7 @@ const App = () => {
 
   useEffect(() => {
     getMovieRequest(searchValue);
+    getInfosRequest(searchValue);
   }, [searchValue]);
 
 useEffect(() => {
@@ -71,17 +72,20 @@ useEffect(() => {
 
   return <div className='container-fluid movie-app'>
     <div>
-      <MovieListHeading heading = 'Movies'/>
+      <MovieListHeading heading = 'My Watch List'/>
       <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
     </div>
+    <br></br>
+    <br></br><br></br><br></br>
     <div className='row'>
       <MovieList 
         movies={movies} 
         handleFavouritesClick={addFavouriteMovie} 
         favouriteComponent={AddFavourite}
       />
+      <div className='row'><InfoList infos={infos}/></div>
     </div>
-
+    
     <div>
       <MovieListHeading heading = 'Favorites'/>
     </div>
