@@ -10,6 +10,7 @@ import RemoveFavourite from './Components/removeFavourites';
 
 
 const App = () => {
+  const[joke, setJoke] = useState('');
   const [movies, setMovies] = useState([]);
   const [favourites, setFavourites]= useState([]);
   const [infos, setInfos] = useState([]);
@@ -35,6 +36,16 @@ const App = () => {
     setInfos(responseJson.Search);
     }
   };
+  const getJokeRequest = async () => {
+    const url = 'https://official-joke-api.appspot.com/random_joke';
+
+    const response = await fetch(url);
+    const responseJson = await response.json();
+
+    if(responseJson){
+    setJoke(responseJson.data.joke);
+    };
+  }
 
   useEffect(() => {
     getMovieRequest(searchValue);
@@ -47,6 +58,10 @@ useEffect(() => {
     );
     setFavourites(movieFavourites);
 }, []);
+
+useEffect(() => {
+  getJokeRequest(joke);
+},[]);
 
 
   
@@ -98,7 +113,13 @@ useEffect(() => {
       />
     </div>
 
-      
+    <div>
+      <h1>A joke if you feel down</h1>
+      <p>JOKE: {joke}</p>
+      <br></br>
+      <button>Get a new joke</button>
+    </div>
+
     </div>
 
 };
